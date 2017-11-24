@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <h3>头部信息</h3>
     <loading v-show="loading"></loading>
     <router-view></router-view>
     <NavBottomView v-show="shownav"></NavBottomView>
