@@ -70,7 +70,7 @@
 				if(_this.keyword == ''){
 					alert('请输入商品名称');
 				}else{
-					_this.$http.get('/search',{
+					_this.$http.get('/search',{ 
 						params:{
 							kw:_this.keyword,
 							hot:'',

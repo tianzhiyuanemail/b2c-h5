@@ -12,18 +12,18 @@
                     <div class="product_content">
                         <ul>
                         
-                            <li class="product_skill_item" v-for="item in homeDatas">
-                                <router-link :to="'/detail/'+item.product_id" class="product_skill_item_link">
-                                    <img v-lazy="item.product_img_url" alt="" class="product_skill_item_cion lazy-img-fadein">
-                                    <p class="nowprice">
-                                        <i style="text-decoration: none;font-style: normal;font-size: 12px">¥</i>
-                                        <span class="now_price">{{item.product_price}}</span>
-                                    </p>
-                                    <p class="oldprice">
-                                        <i style="text-decoration: none;font-style: normal;font-size: 12px">¥</i>
-                                        <del class="old_price">{{item.product_uprice}}</del>
-                                    </p>
-                                </router-link>
+                            <li class="product_skill_item" v-for="item in homeDatas">{{item.id}}
+                                <!--<router-link :to="'/detail/'+item.id" class="product_skill_item_link">-->
+                                    <!--<img v-lazy="item.id" alt="" class="product_skill_item_cion lazy-img-fadein">-->
+                                    <!--<p class="nowprice">-->
+                                        <!--<i style="text-decoration: none;font-style: normal;font-size: 12px">¥</i>-->
+                                        <!--<span class="now_price">{{item.id}}</span>-->
+                                    <!--</p>-->
+                                    <!--<p class="oldprice">-->
+                                        <!--<i style="text-decoration: none;font-style: normal;font-size: 12px">¥</i>-->
+                                        <!--<del class="old_price">{{item.id}}</del>-->
+                                    <!--</p>-->
+                                <!--</router-link>-->
                             </li>
                         
                         </ul>
@@ -39,13 +39,13 @@
                         <div class="share_quality_left not_eng_box">
                             <ul>
                                 <li class="not_eng_item" v-for="item in mainDatas">
-                                    <router-link  class="not_eng_link" :to="'/detail/'+item.product_id">
-                                        <img v-lazy="item.product_img_url" alt="" class="not_eng_pic lazy-img-fadein">
+                                    <router-link  class="not_eng_link" :to="'/detail/'+item.id">
+                                        <img :src="item.productFitstImgUrl" alt="" class="not_eng_pic lazy-img-fadein">
                                         <div class="not_eng_info">
-                                            <p class="not_eng_title">{{item.product_name}}</p>
+                                            <p class="not_eng_title">{{item.productTitle}}</p>
                                             <p class="not_eng_text">
                                                 <i style="text-decoration: none;font-style: normal;font-size: 12px">¥</i>
-                                                <span class="more_info_price_txt">{{item.product_price}}</span>
+                                                <span class="more_info_price_txt">{{item.saleGuidePrice}}</span>
                                             </p>
                                         </div>
                                     </router-link>
@@ -72,12 +72,14 @@
         methods:{
             getData(){
                 let _this = this;
-                _this.$http.get('/home').then((res)=>{
-                    _this.homeDatas.push(res.data[0]);
-                    _this.homeDatas.push(res.data[1]);
-                    _this.homeDatas.push(res.data[2]);
-                    _this.homeDatas.push(res.data[3]);
-                    _this.mainDatas = res.data;
+                _this.$http.get('/api/products/list').then((res)=>{
+                    console.info(res)
+//                    _this.homeDatas.push(res.data[0]);
+//                    _this.homeDatas.push(res.data[1]);
+//                    _this.homeDatas.push(res.data[2]);
+//                    _this.homeDatas.push(res.data[3]);
+                    console.info(res.data.data)
+                    _this.mainDatas = res.data.data;
                 },(err)=>{
                     console.log(err);
                 })

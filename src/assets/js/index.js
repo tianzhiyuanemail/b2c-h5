@@ -76,7 +76,7 @@ function scrollPic() {
         {
             ols[i].className = "";
         }
-        console.log("最初", square);
+        // console.log("最初", square);
         ols[square].className = "now"; // 留下当前的
     }, 3000);
 
@@ -103,7 +103,7 @@ function scrollPic() {
      * 触摸事件开始
      */
     imgBox.addEventListener("touchstart", function(e) {
-        console.log("开始");
+        // console.log("开始");
         var event = e || window.event;
         //记录开始滑动的位置
         startX = event.touches[0].clientX;
@@ -112,7 +112,7 @@ function scrollPic() {
      * 触摸滑动事件
      */
     imgBox.addEventListener("touchmove", function(e) {
-        console.log("move");
+        // console.log("move");
         var event = e || window.event;
         event.preventDefault();
 
@@ -129,7 +129,7 @@ function scrollPic() {
      * 触摸结束事件
      */
     imgBox.addEventListener("touchend", function() {
-        console.log("end");
+        // console.log("end");
         //如果移动的位置大于三分之一，并且是移动过的
         if (Math.abs(moveX) > (1 / 3 * width) && endX != 0) {
             //向左
@@ -159,7 +159,7 @@ function scrollPic() {
             {
                 ols[i].className = "";
             }
-            console.log("最初", square);
+            // console.log("最初", square);
             ols[square].className = "now"; // 留下当前的
             addTransition();
             setTransfrom(-indexx * width);

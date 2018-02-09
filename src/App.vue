@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <loading v-show="loading"></loading>
+    <!--<loading v-show="loading"></loading>-->
     <router-view></router-view>
     <NavBottomView v-show="shownav"></NavBottomView>
   </div>
@@ -14,6 +14,7 @@ export default {
   computed:mapGetters(['loading','shownav']),
   watch:{
     $route(to,from){
+        
       if(to.path.indexOf('detail')!=-1){
         this.$store.dispatch('hideNav');
         console.log(to.path.indexOf('detail'),"-----");
