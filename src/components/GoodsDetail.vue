@@ -95,7 +95,7 @@
             <!--商品评价--->
             <section class="group-warp">
                 <div>
-                    <div class="product_pj">商品评价(209)</div>
+                    <span class="product_pj">商品评价(209)</span>
                     <ul class="product_yx-ul">
                         <li>人群(39)</li>
                         <li>衣服不错(38)</li>
@@ -106,166 +106,43 @@
                     </ul>
                 </div>
                 <div>
-                    <ul>
+                    <ul class="product_user_evaluate">
                         <li>
                             <div class="user_info">
                                  <span><img  src="../assets/images/common/icon-user-img.png"/>
                             冬青的庭院</span>
                             </div>
-                           <div>
-                               <p>很仙，很好看蛮美的～</p>
-                               <p>颜色分类:米色第一批预定8-12天;尺码:M</p>
+                           <div class="evaluate_info_list">
+                               <p class="evaluate-info">很仙，很好看蛮美的～很仙，很好看蛮美的～很仙，很好看蛮美的～很仙，很好看蛮美的～很仙，很好看蛮美的～很仙，很好看蛮美的～很仙，很好看蛮美的～很仙，很好看蛮美的～很仙，很好看蛮美的～很仙，很好看蛮美的～很仙，很好看蛮美的～很仙，很好看蛮美的～很仙，很好看蛮美的～</p>
+                               <p class="evaluate-sku-info">颜色分类:米色第一批预定8-12天;尺码:M</p>
                            </div>
                         </li>
+                        <li>
+                            <div class="user_info">
+                                 <span><img  src="../assets/images/common/icon-user-img.png"/>
+                            冬青的庭院</span>
+                            </div>
+                            <div class="evaluate_info_list">
+                                <p>很仙，很好看蛮美的～</p>
+                                <p class="evaluate-sku-info">颜色分类:米色第一批预定8-12天;尺码:M</p>
+                            </div>
+                        </li>
                     </ul>
-
+                    <div class="button_info">
+                        <div>
+                            <span>查看更多...</span>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section class="group-warp">
-                <p class="pro_det">
-                     {{goodsData.id}} 
-                </p>
-                 <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p> <p class="pro_det">
-                     {{goodsData.id}} 
-                </p>
+                <div>
+                    <span  class="product_pj">商品详情</span>
+                </div>
+                <div class="product_detail" v-html="goodsData.productDetail">
+
+                </div>
+                <div>已经到底了哦么么哒</div>
            </section>
 
         </main>
@@ -360,6 +237,7 @@ import slider from 'vue-concise-slider'// import slider components
                                                 //  'width': '400px'
                                             }
                                         }]
+                    console.info(res.data)
                     _this.goodsData = res.data;
 
                   // imgBox = $("img .slider")[0];
