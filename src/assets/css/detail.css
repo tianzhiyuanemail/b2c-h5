@@ -380,12 +380,274 @@ ul.product_yx-ul li {
 /* --------------------------------------------------------------------颜色尺码 end------------------------------------------------------------------------ */
 
 
+/*---------------------------------------------------------------------饿了么 UI 弹框--------------------------------------------------------*/
+.mint-popup-bottom {
+    width: 100%;
+    max-width: 100%;
+    height: 525px;
+}
+.spec-menu-content {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-top: 1px solid #dadada;
+    z-index: 250;
+    display: none;
+}
+a.rt-close-btn-wrap.spec-menu-close img {
+    width: 19px;
+    /* right: 1px; */
+    float: right;
+    margin-top: 10px;
+    margin-right: 11px;
+}
+.spec-first-pic {
+    position: absolute;
+    left: 8px;
+    top: -26px;
+    width: 100px;
+    height: 100px;
+    border-radius: 3px;
+    border: 1px solid #f0f1f3;
+    background-color: #fff;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+}
+.spec-price {
+    font-size: 16px;
+    line-height: 15px;
+    color: #f23030;
+    padding-top: 42px;
+    padding-left: 121px;
+    font-weight: 700;
+}
+.spec-first-pic img {
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+}
+
+.spec-weight {
+    font-size: 11px;
+    line-height: 11px;
+    color: #81838e;
+    padding-top: 8px;
+    padding-left: 121px;
+}
+.spec-menu-middle {
+    position: absolute;
+    bottom: 43px;
+    top: 85px;
+    left: 0;
+    right: 0;
+    padding-left: 10px;
+    overflow: auto;
+}
+
+.loc-serv-note, .prod-coupon, .prod-spec {
+    height: auto;
+    padding-top: 15px;
+    font-size: 0;
+    padding-bottom: 15px;
+}
+.pro-color, .pro-count, .pro-size, .pro-spec, .spec-desc {
+    font-size: 0;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.quantity-wrapper {
+    display: inline-block;
+    height: 26px;
+    border-radius: 5px;
+    margin-right: 21px;
+    float: right;
+    line-height: 26px;
+}
+
+.quantity, .quantity-decrease, .quantity-increase {
+    float: left;
+    font-size: 15px;
+    text-align: center;
+}
+.quantity-decrease.limited em {
+    background-position: -45px -85px;
+}
+.quantity {
+    color: #232326;
+    border: solid #cbcbcb;
+    border-width: 1px 0 1px 0;
+    height: 24px;
+    line-height: 24px;
+    width: 34px;
+    border-radius: 0;
+    -webkit-appearance: none;
+    box-sizing: border-box;
+}
+.quantity-decrease em {
+    /*background: url(../images/5.4/product-detail-sprites-mjs.png?v=1) no-repeat;*/
+    background-size: 100px 100px;
+    background-position: -32px -85px;
+    height: 12px;
+    width: 12px;
+    display: block;
+    margin: 6px;
+}
+.base-txt {
+    margin-left: 34px;
+    font-size: 13px;
+    color: #252525;
+    line-height: 15px;
+}
+.quantity-increase em {
+    /*background: url(../images/5.4/product-detail-sprites-mjs.png?v=1) no-repeat;*/
+    background-position: -32px -67px;
+    background-size: 100px 100px;
+    height: 12px;
+    width: 12px;
+    display: block;
+    margin: 6px;
+}
+.quantity-decrease, .quantity-increase {
+    background: #fff;
+    border: 1px solid #cbcbcb;
+    color: #232326;
+    display: block;
+    height: 24px;
+    line-height: 24px;
+    width: 26px;
+    overflow: hidden;
+    text-indent: -200px;
+    box-sizing: border-box;
+}
+.spec-menu-btn {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+.spec-compont-btn{
+    float: right;
+    display: inline-flex;
+}
+p.btn-minus.off {
+    width: 19px;
+    cursor: pointer;
+    background: #f1f1f1;
+}
+a.btn.minus {
+    display: block;
+    height: .8rem;
+    position: relative;
+}
+
+.flick-menu-btn {
+    width: 100%;
+    font-size: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.spec-menu-btn a {
+    display: block;
+    height: 43px;
+    width: 1%;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-size: 15px;
+    line-height: 43px;
+    color: #fff;
+    text-align: center;
+}
+.yellow-color {
+    background-color: #ffb03f;
+}
+.red-color {
+    background-color: #f23030;
+}
+
+a.a-item.selected.J_ping {
+    height: 27px;
+    /* border: 1px solid #bfbfbf; */
+    border-radius: 4px;
+    line-height: 25px;
+    font-size: 13px;
+    /* color: #232326; */
+    float: left;
+    margin-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 69px;
+    max-width: 98%;
+    box-sizing: border-box;
+    text-align: center;
+}
+a.a-item.J_ping {
+    height: 27px;
+    border: 1px solid #bfbfbf;
+    border-radius: 4px;
+    line-height: 25px;
+    font-size: 13px;
+    color: #232326;
+    float: left;
+    margin-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 69px;
+    max-width: 98%;
+    box-sizing: border-box;
+    text-align: center;
+}
+.pro-buy-style p a.selected, .pro-color p a.selected, .pro-size p a.selected, .pro-spec p a.selected {
+    border: 1px solid #f23030;
+    color: #f23030;
+}
+
+.pro-color div, .pro-size div {
+    display: flex;
+    margin-bottom: 8px;
+}
+div .pro-color a, .pro-size a {
+    margin-top: 0px;
+    margin-left: 20px;
+}
+.msg-notice .part-note-msg, .prod-spec .part-note-msg, .provide-srv .part-note-msg, .send-to .part-note-msg {
+    float: left;
+}
+/**饿了么 UI 弹框 end--------------------------------------*/
 
 .product_serve_content {
     float: right;
     content: 10px;
 }
-
+.part-note-msg {
+    display: inline-block;
+    line-height: 15px;
+    font-size: 13px;
+    color: #81838e;
+    width: 26px;
+    white-space: normal;
+    height: auto;
+}
 .product_intro .pro_det {
     font-size: 16px;
     font-weight: 500;

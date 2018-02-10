@@ -7,7 +7,10 @@ import store from './store/'
 import VueResource from 'vue-resource'
 require('./assets/css/base.css'); //全局引入
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import Mint from 'mint-ui';
+import 'mint-ui/lib/style.css';
 
+Vue.use(Mint);
 Vue.use(VueAwesomeSwiper)
 Vue.use(VueResource);
 Vue.config.productionTip = false

@@ -7,17 +7,11 @@
         </header>
         <main class="detail_box">
             <section class="banner_box">
-                <!-- <ul class="banner_child_box">
-                    <li class="banner_item" v-for="img in goodsImages">
-                        <img :src="img" alt="" class="banner_pic">
-                        
-                    </li>
-                    
-                </ul> -->
+
                 <!-- 制作一个框架包裹slider -->
                 <div >
                         <!-- 配置slider组件 -->
-                        <slider :pages="goodsImages" :sliderinit="sliderinit" ref="slider"   >
+                        <slider :pages="goodsImagess" :sliderinit="sliderinit" ref="slider"   >
                             <!-- 设置loading,可自定义 -->
                             <div slot="loading">loading...</div>
                         </slider>
@@ -71,19 +65,17 @@
                         <div  class="product_youhui">
                             <img style="width: 26px;height: 22px; margin-bottom: -5px; " src="../assets/images/common/youhuiquan.png"/>店铺优惠券满100减30
                         </div>
-                        <div class="product_right product_yh_lq">
+                        <div class="product_right product_yh_lq" @click="receiveCoupons(goodsData.id)">
                             领取
                         </div>
                     </div>
                 <div>
                 </div>    
-
             </section>
-
             <!--请选择颜色尺码--->
             <section class="group-warp">
                 <div>
-                    <div class="product_color_size">请选择颜色尺码 <span>....</span>   </div>   
+                    <div  @click="handleClick()" class="product_color_size">请选择颜色尺码 <span>....</span>   </div>
                 </div>   
             </section>
             <!--产品参数--->
@@ -144,7 +136,100 @@
                 </div>
                 <div>已经到底了哦么么哒</div>
            </section>
+            <mt-popup v-model="popupVisible" position="bottom" modal=true>
+                <div class="spec-menu">
+                    <div class="spec-menu-content spec-menu-show" data-floor="true" style="display: block;">
+                        <div class="spec-menu-top bdr-b">
+                            <div class="spec-first-pic">
+                                <img id="spec_image" :src="goodsImages[2]" >
+                            </div>
+                            <a class="rt-close-btn-wrap spec-menu-close"  @click="handleClickClose()">
+                                <img  src="../assets/images/common/close.png"/>
+                            </a>
 
+                            <div class="spec-price" id="specJdPri" style="display: block">
+                                <span class="spec-yang-pic">￥</span>
+                                <span id="spec_price"> 199.00 </span>
+                            </div>
+
+                            <div id="specWeightDiv" class="spec-weight">
+                                <span>重量:</span>
+                                <span id="spec_weight">0.14kg</span>
+                            </div>
+                        </div>
+                        <div class="spec-menu-middle">
+                            <div class="prod-spec" id="prodSpecArea">
+                                <!-- 已选 -->
+                                <div class="spec-desc">
+                                    <span class="part-note-msg">已选</span>
+                                    <div id="specDetailInfo_spec" class="base-txt">
+                                        黑色 M
+                                        &nbsp;&nbsp;<span class="amount">1件</span>
+                                    </div>
+                                </div>
+                                <div class="nature-container" id="natureCotainer">
+                                    <!--颜色 5.5版本之前的规格属性-->
+                                    <div class="pro-color">
+                                        <div>
+                                            <span class="part-note-msg"> 颜色 </span>
+                                        </div>
+
+                                        <p id="color">
+                                            <a title="黑色" class="a-item selected J_ping" onclick="updateColorSizeSpec()"  href="javascript:void(0)">黑色</a>
+                                            <a title="白色" class="a-item  J_ping" onclick="updateColorSizeSpec()"   href="javascript:void(0)">白色</a>
+                                            <a title="粉色" class="a-item  J_ping" onclick="updateColorSizeSpec()"   href="javascript:void(0)">粉色</a>
+                                            <a title="粉色" class="a-item  J_ping" onclick="updateColorSizeSpec()"   href="javascript:void(0)">粉色</a>
+                                            <a title="粉色" class="a-item  J_ping" onclick="updateColorSizeSpec()"   href="javascript:void(0)">粉色</a>
+                                            <a title="粉色" class="a-item  J_ping" onclick="updateColorSizeSpec()"   href="javascript:void(0)">粉色</a>
+                                            <a title="粉色" class="a-item  J_ping" onclick="updateColorSizeSpec()"   href="javascript:void(0)">粉色</a>
+                                            <a title="粉色" class="a-item  J_ping" onclick="updateColorSizeSpec()"   href="javascript:void(0)">粉色</a>
+                                            <a title="粉色" class="a-item  J_ping" onclick="updateColorSizeSpec()"   href="javascript:void(0)">粉色</a>
+                                            <a title="粉色" class="a-item  J_ping" onclick="updateColorSizeSpec()"   href="javascript:void(0)">粉色</a>
+                                            <a title="粉色" class="a-item  J_ping" onclick="updateColorSizeSpec()"   href="javascript:void(0)">粉色</a>
+                                        </p>
+                                    </div>
+                                    <!--尺寸-->
+                                    <div class="pro-size">
+                                        <div>
+                                            <span class="part-note-msg"> 尺码 </span>
+                                        </div>
+
+                                        <p id="size">
+                                            <a title="S" class="a-item J_ping" onclick="updateColorSizeSpec()" report-eventid="MProductdetail_SpecificationSpec" report-eventparam="S" href="javascript:void(0)">S</a>
+                                            <a title="M" class="a-item selected J_ping" onclick="updateColorSizeSpec()" report-eventid="MProductdetail_SpecificationSpec" report-eventparam="M" href="javascript:void(0)">M</a>
+                                            <a title="L" class="a-item J_ping" onclick="updateColorSizeSpec()" report-eventid="MProductdetail_SpecificationSpec" report-eventparam="L" href="javascript:void(0)">L</a>
+                                            <a title="L" class="a-item J_ping" onclick="updateColorSizeSpec()" report-eventid="MProductdetail_SpecificationSpec" report-eventparam="L" href="javascript:void(0)">L</a>
+                                            <a title="L" class="a-item J_ping" onclick="updateColorSizeSpec()" report-eventid="MProductdetail_SpecificationSpec" report-eventparam="L" href="javascript:void(0)">L</a>
+                                            <a title="L" class="a-item J_ping" onclick="updateColorSizeSpec()" report-eventid="MProductdetail_SpecificationSpec" report-eventparam="L" href="javascript:void(0)">L</a>
+                                            <a title="L" class="a-item J_ping" onclick="updateColorSizeSpec()" report-eventid="MProductdetail_SpecificationSpec" report-eventparam="L" href="javascript:void(0)">L</a>
+                                            <a title="L" class="a-item J_ping" onclick="updateColorSizeSpec()" report-eventid="MProductdetail_SpecificationSpec" report-eventparam="L" href="javascript:void(0)">L</a>
+                                        </p>
+                                    </div>
+
+                                    <!--数量-->
+                                    <div id="addCartNum" class="pro-count">
+                                        <span class="part-note-msg">数量</span>
+                                        <div class="quantity-wrapper">
+                                            <input type="hidden" id="limitSukNum1025423798" value="200">
+                                            <a class="quantity-decrease limited  J_ping" report-eventid="MProductdetail_SpecificationReduce" onclick="minus()">
+                                                <em id="minus">-</em>
+                                            </a>
+                                            <input type="tel" class="quantity" size="4" value="1" id="number" onblur="modify();">
+                                            <a class="quantity-increase J_ping" report-eventid="MProductdetail_SpecificationAdd" id="quantityPlus" onclick="plus()">
+                                                <em id="plus">+</em>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flick-menu-btn spec-menu-btn">
+                            <a class="yellow-color add_cart" id="add_cart_spec" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">加入购物车</a>
+                            <a class="red-color directorder" id="directorder_spec" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">立即购买</a>
+                        </div>
+                    </div>
+                </div>
+            </mt-popup>
         </main>
         <footer class="cart_d_footer">
             <div class="m">
@@ -160,12 +245,12 @@
                         </a>
                         <a href="" class="m_item_link">
                             <em class="m_item_pic three"></em>
-                            <span class="m_item_name">购物车</span>
+                            <span class="m_item_name" >购物车</span>
                         </a>
                     </li>
                 </ul>
                 <div class="btn_box clearfix" >
-                    <a href="#" class="buy_now">加入购物车</a>
+                    <a @click="addShoppingCat(goodsData.id)" class="buy_now">加入购物车</a>
                     <a href="#" class="buybuy">立即购买</a>
                 </div>
             </div>
@@ -173,20 +258,23 @@
 	</div>
 </template>
 <script>
-import slider from 'vue-concise-slider'// import slider components
-
+    import { Toast ,Popup } from 'mint-ui';
+    import slider from 'vue-concise-slider'// import slider components
    export default{
-     components: {
-        slider
-    },
+        components: {
+            slider
+        },
         mounted(){
-            
+            //页面重新刷新 隐藏 footer
+            this.$store.dispatch('hideNav');
             this.fetchData(this.$route.params.id);
         },
         data(){
             return {
                 // cateGoodsAllData:[],
+                popupVisible:false,
                 goodsImages:[],
+                goodsImagess:[],
                 goodsData:{},
                 sliderinit: {
                   currentPage: 0,//当前页码
@@ -201,10 +289,9 @@ import slider from 'vue-concise-slider'// import slider components
                 },
             }
         },
-           
+       //监听
         watch:{
             $route(to){
-
                 var reg=/detail\/\d+/;
                 if(reg.test(to.path)){
                     var categotyId=this.$route.params.id || 0;
@@ -219,44 +306,46 @@ import slider from 'vue-concise-slider'// import slider components
                         if(res.data.productImgUrls!=null && res.data.productImgUrls != ''){
                              _this.goodsImages = res.data.productImgUrls.split(",");
                         };
-                    _this.goodsImages = [{
+                    _this.goodsImagess = [{
                                           html: '<img class="slider" style="width: 100%;height: 100%;max-width: 100%;max-height: 100%;margin-top: 45px;" src="http://detao.oss-cn-beijing.aliyuncs.com/proudct/a42eb54b954b4c75aa1e8c4e85561501.jpg"/>',
-                                          style: {
-                                                //  'width': '400px'
-                                            }
                                         },
                                         {
                                             html: '<img class="slider" style="width: 100%;height: 100%;max-width: 100%;max-height: 100%;margin-top: 45px;"  src="http://detao.oss-cn-beijing.aliyuncs.com/proudct/a42eb54b954b4c75aa1e8c4e85561501.jpg"/>',
-                                            style: {
-                                                //  'width': '400px'
-                                            }
                                         },
                                         {
                                             html: '<img class="slider" style="width: 100%;height: 100%;max-width: 100%;max-height: 100%;margin-top: 45px;"  src="http://detao.oss-cn-beijing.aliyuncs.com/proudct/a42eb54b954b4c75aa1e8c4e85561501.jpg"/>',
-                                            style: {
-                                                //  'width': '400px'
-                                            }
                                         }]
                     console.info(res.data)
                     _this.goodsData = res.data;
 
-                  // imgBox = $("img .slider")[0];
                 },(err)=>{
                     console.log(err);
                 })
             },
-              
+
+            //添加到购物车
+            addShoppingCat: function(productId){
+                Toast({
+                    message: '添加购物车成功',
+                    position: 'middle',
+                    duration: 2000
+                });
+            },
+            //领取优惠券
+            receiveCoupons: function(productId){
+                Toast({
+                    message: '领取成功~',
+                    position: 'middle',
+                    duration: 2000
+                });
+            },
             slideNext () {
               this.$refs.slider.$emit('slideNext')
-              // slider.$emit('slideNext')
             },
             slidePre () {
               this.$refs.slider.$emit('slidePre')
-              // slider.$emit('slidePre')
             }
-        
         }
-        
     }
 </script>
 <style>
