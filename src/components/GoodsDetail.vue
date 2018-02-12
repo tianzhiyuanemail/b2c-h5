@@ -2,25 +2,11 @@
 	<div class="goods_detail">
 		<header class="top_bar">
             <a onclick="window.history.go(-1)" class="icon_back"></a>
-            <h3 class="cartname">商品详情</h3>
+            <!--<h3 class="cartname">商品详情</h3>-->
             <a href="#" class="icon_menu"></a>
         </header>
         <main class="detail_box">
-            <section class="banner_box">
-
-                <!-- 制作一个框架包裹slider -->
-                <div >
-                        <!-- 配置slider组件 -->
-                        <slider :pages="goodsImagess" :sliderinit="sliderinit" ref="slider"   >
-                            <!-- 设置loading,可自定义 -->
-                            <div slot="loading">loading...</div>
-                        </slider>
-                        <div class="sliderButton">
-                        <!-- <button @click="slidePre">上一页/pre</button>
-                        <button @click="slideNext">下一页/next</button> -->
-                        </div>
-                </div>
-            </section>
+            <product-swipe :goodsImages="goodsImagess"></product-swipe>
             <section class="group-warp ">
                 <p class="p_name">{{goodsData.productTitle}}</p>
                     <div class="product_one">
@@ -258,11 +244,12 @@
 	</div>
 </template>
 <script>
-    import { Toast ,Popup } from 'mint-ui';
-    import slider from 'vue-concise-slider'// import slider components
+    import { Toast ,Popup,Swipe, SwipeItem  } from 'mint-ui';
+    import ProductSwipe from "./product/ProductSwipe";
+
    export default{
         components: {
-            slider
+            ProductSwipe
         },
         mounted(){
             //页面重新刷新 隐藏 footer
@@ -276,17 +263,6 @@
                 goodsImages:[],
                 goodsImagess:[],
                 goodsData:{},
-                sliderinit: {
-                  currentPage: 0,//当前页码
-                  thresholdDistance: 100,//滑动判定距离
-                  thresholdTime: 300,//滑动判定时间
-                  loop:true,//循环滚动
-                  infinite:1,//无限滚动前后遍历数
-                  slidesToScroll:1,//每次滑动项数
-                  direction:'horizontal',//方向设置
-                  autoplay:0,//自动播放
-                  timingFunction: 'ease'
-                },
             }
         },
        //监听
@@ -304,17 +280,22 @@
                 var _this=this;
                 _this.$http.get('/api/products/info/'+id).then((res)=>{
                         if(res.data.productImgUrls!=null && res.data.productImgUrls != ''){
-                             _this.goodsImages = res.data.productImgUrls.split(",");
+                            var s =  res.data.productImgUrls.split(",");
+                            console.info("2222222222222"+s)
+                             s.forEach(function (value, index, array) {
+                                 console.info(value+"----------------------------------------------------------")
+                                 _this.goodsImagess.push({'html':value})
+                             });
                         };
-                    _this.goodsImagess = [{
-                                          html: '<img class="slider" style="width: 100%;height: 100%;max-width: 100%;max-height: 100%;margin-top: 45px;" src="http://detao.oss-cn-beijing.aliyuncs.com/proudct/a42eb54b954b4c75aa1e8c4e85561501.jpg"/>',
-                                        },
-                                        {
-                                            html: '<img class="slider" style="width: 100%;height: 100%;max-width: 100%;max-height: 100%;margin-top: 45px;"  src="http://detao.oss-cn-beijing.aliyuncs.com/proudct/a42eb54b954b4c75aa1e8c4e85561501.jpg"/>',
-                                        },
-                                        {
-                                            html: '<img class="slider" style="width: 100%;height: 100%;max-width: 100%;max-height: 100%;margin-top: 45px;"  src="http://detao.oss-cn-beijing.aliyuncs.com/proudct/a42eb54b954b4c75aa1e8c4e85561501.jpg"/>',
-                                        }]
+                    // _this.goodsImagess = [{
+                    //                       html: 'http://detao.oss-cn-beijing.aliyuncs.com/proudct/a42eb54b954b4c75aa1e8c4e85561501.jpg'
+                    //                     },
+                    //                     {
+                    //                         html: 'http://detao.oss-cn-beijing.aliyuncs.com/proudct/a42eb54b954b4c75aa1e8c4e85561501.jpg'
+                    //                     },
+                    //                     {
+                    //                         html: 'http://detao.oss-cn-beijing.aliyuncs.com/proudct/a42eb54b954b4c75aa1e8c4e85561501.jpg'
+                    //                     }]
                     console.info(res.data)
                     _this.goodsData = res.data;
 
@@ -322,7 +303,12 @@
                     console.log(err);
                 })
             },
-
+            handleClick:function () {
+              this.popupVisible =true;
+            },
+            handleClickClose:function () {
+              this.popupVisible =false;
+            },
             //添加到购物车
             addShoppingCat: function(productId){
                 Toast({
@@ -339,12 +325,7 @@
                     duration: 2000
                 });
             },
-            slideNext () {
-              this.$refs.slider.$emit('slideNext')
-            },
-            slidePre () {
-              this.$refs.slider.$emit('slidePre')
-            }
+
         }
     }
 </script>

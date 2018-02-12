@@ -7,12 +7,6 @@ body {
     height: 100%;
 }
 
-.detail_box .banner_box {
-    width: 100%;
-    height: 50%;
-    position: relative;
-    overflow: hidden;
-}
 
 .banner_box .banner_child_box {
     width: 1000%;
