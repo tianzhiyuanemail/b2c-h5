@@ -9,7 +9,9 @@ require('./assets/css/base.css'); //全局引入
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import Mint from 'mint-ui';
 import 'mint-ui/lib/style.css';
+import axios from '../node_modules/axios';
 
+Vue.prototype.axios = axios;
 Vue.use(Mint);
 Vue.use(VueAwesomeSwiper)
 Vue.use(VueResource);
@@ -20,6 +22,7 @@ new Vue({
   el: '#app',
   router,
   store,
+  axios,
   template: '<App/>',
   components: { App }
 })

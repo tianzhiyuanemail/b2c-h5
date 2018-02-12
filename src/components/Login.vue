@@ -34,25 +34,38 @@
 		},
 		methods:{
 			goLogin(){
-				let _this = this;
-				
-				if(_this.username ==''){
-					alert('请输入用户名');
-				}else if(_this.password == ''){
-					alert('请输入密码');
-				}else{
-					_this.$http.get('api/member/login',
-						{
-						   params:{'userName':_this.username,
-								   'passWord':_this.password,}
-						},
-						{emulateJSON:true}
-					).then((res)=>{
-                        console.log(res);
-					},(err)=>{
-						console.log(err);
-					});
-				}
+                let _this = this;
+                _this.axios.get('api/member/login',{
+                    params: {
+                        userName:_this.username,
+                        passWord:_this.password
+                    }
+				})
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (response) {
+                        console.log(response);
+                    });
+			// 	let _this = this;
+			//
+			// 	if(_this.username ==''){
+			// 		alert('请输入用户名');
+			// 	}else if(_this.password == ''){
+			// 		alert('请输入密码');
+			// 	}else{
+			// 		_this.$http.get('api/member/login',
+			// 			{
+			// 			   params:{'userName':_this.username,
+			// 					   'passWord':_this.password,}
+			// 			},
+			// 			{emulateJSON:true}
+			// 		).then((res)=>{
+             //            console.log(res);
+			// 		},(err)=>{
+			// 			console.log(err);
+			// 		});
+			// 	}
 				
 			}
 		}

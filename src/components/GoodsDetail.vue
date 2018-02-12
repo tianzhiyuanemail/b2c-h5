@@ -246,17 +246,23 @@
 <script>
     import { Toast ,Popup,Swipe, SwipeItem  } from 'mint-ui';
     import ProductSwipe from "./product/ProductSwipe";
+    import {common} from '../assets/js/common/common.js'
 
    export default{
         components: {
             ProductSwipe
         },
-        mounted(){
-            //页面重新刷新 隐藏 footer
-            this.$store.dispatch('hideNav');
-            this.fetchData(this.$route.params.id);
-        },
-        data(){
+       mounted(){
+           //页面重新刷新 隐藏 footer
+           this.$store.dispatch('hideNav');
+           common.toTop();
+           this.fetchData(this.$route.params.id);
+           common.addEventListener(this.handleScroll);
+       },
+       destroyed () {
+           common.removeEventListener(this.handleScroll);
+       },
+       data(){
             return {
                 // cateGoodsAllData:[],
                 popupVisible:false,
@@ -325,7 +331,10 @@
                     duration: 2000
                 });
             },
-
+            handleScroll: function () {
+                var s =  common.getScrollTop();
+                console.info(s)
+            }
         }
     }
 </script>
